@@ -1,6 +1,8 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+from tensorflow.python.framework.ops import disable_eager_execution
+
 from game import wrapped_flappy_bird as game
 import numpy as np
 import cv2
@@ -20,7 +22,7 @@ REPLAY_MEMORY = 50000  # 保存训练记忆的队列的容量
 BATCH = 32  # 每次随机抽取训练集的大小
 FRAME_PER_ACTION = 1  # 每次动作所用的时间
 
-
+disable_eager_execution()
 # 定义神经网络基本方法
 
 # 初始化指定形状的权重w
